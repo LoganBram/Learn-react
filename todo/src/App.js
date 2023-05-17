@@ -17,7 +17,7 @@ export default function app(){
     { label: "Friday", id: "F" },
     { label: "Saturday", id: "SA" },
     { label: "Sunday", id: "SU" },
-    // Add the rest of the week here...
+
   ];
   
   return(

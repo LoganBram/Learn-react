@@ -159,8 +159,8 @@ function HandleAdd({setItems}){
       
   </div>
   <button onClick={handleSubmit}> 
-              Submit
-            </button>
+      Submit
+  </button>
   </ReactModal>
   </>
 

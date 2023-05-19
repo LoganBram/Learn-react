@@ -3,6 +3,7 @@ import './App.css';
 import ReactModal from 'react-modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Popup from 'reactjs-popup';
+import { DropdownButton } from 'react-bootstrap';
 
 export default function App(){
 
@@ -29,13 +30,15 @@ export default function App(){
     { label: "Sunday", dayabrev: "SU" },
 
   ];
+
+
   
   return(
     //maps each day to the ToDoList component & displays each day as header
     <div className = "appwrapper">
       <Title/>
       <SearchBar/>
-      <HandleAdd setItems = {setItems} />
+      <HandleAdd setItems={setItems}/>
       <div>
       {days.map(day => 
         <div key={day.dayabrev}>
@@ -99,6 +102,7 @@ function HandleAdd({setItems}){
   const [newTask, setNewTask] = useState('');
   const [day, setDay] = useState('');
 
+  //activates when submit on addtask occurs
   const handleSubmit = () => {
     const task = {
       dayabrev: day,
@@ -113,7 +117,6 @@ function HandleAdd({setItems}){
     //close popup
     setIsOpen(false);
     
-
   }
 
   return(
@@ -140,21 +143,28 @@ function HandleAdd({setItems}){
         onChange={(e) => setNewTask(e.target.value)}/> 
  
       <h2 class = 'modalsubtitle'>Day</h2>
-
-      <input 
-        className='modalinput'
-        type = 'text'
-        value = {day}
-        onChange={(e) => setDay(e.target.value)}/>
-        
-      <button onClick = {handleSubmit} //runs handle submit when click, which adds new task 
-      > 
-        Submit
-      </button>
+      <select 
+              className='modalinput'
+              value={day}
+              onChange={(e) => setDay(e.target.value)}>
+              <option value="">--Please choose a day--</option>
+              <option value="M">Monday</option>
+              <option value="TU">Tuesday</option>
+              <option value="W">Wednesday</option>
+              <option value="TH">Thursday</option>
+              <option value="F">Friday</option>
+              <option value="SA">Saturday</option>
+              <option value="SU">Sunday</option>
+            </select>
+      
   </div>
+  <button onClick={handleSubmit}> 
+              Submit
+            </button>
   </ReactModal>
   </>
 
   )
 }
 
+            

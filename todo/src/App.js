@@ -28,27 +28,94 @@ export default function App(){
     { label: "Friday", dayabrev: "F" },
     { label: "Saturday", dayabrev: "SA" },
     { label: "Sunday", dayabrev: "SU" },
-
   ];
-
-
   
-  return(
-    //maps each day to the ToDoList component & displays each day as header
-    <div className = "appwrapper">
-      <Title/>
-      <SearchBar/>
-      <HandleAdd setItems={setItems}/>
-      <div>
-      {days.map(day => 
-        <div key={day.dayabrev}>
-          <h2 className="daylabel">{day.label}</h2>
-          <ToDoList todos = {items} day = {day}/>
+  return (
+    <div className="appwrapper">
+        <Title />
+        <div className = "mainbuttons">
+          <HandleAdd setItems={setItems} />
+            <SearchBar />
         </div>
-        )}
-      </div>
+        <div className = "taskUIwrapper">
+            {days.map(day =>
+                <div key={day.dayabrev}>
+                    <h2 className="daylabel">{day.label}</h2>
+                    <ToDoList todos={items} day={day} />
+                </div>
+            )}
+        </div>
     </div>
-  )
+)}
+
+    function HandleAdd({setItems}){
+      const [isOpen, setIsOpen] = useState(true);
+      const [newTask, setNewTask] = useState('');
+      const [day, setDay] = useState('');
+    
+      //activates when submit on addtask occurs
+      const handleSubmit = () => {
+        const task = {
+          dayabrev: day,
+          do: newTask,
+        };
+    
+        //update tasks
+        setItems(prevItems => [...prevItems, task]);
+        //clear inputs
+        setDay('');
+        setNewTask('');
+        //close popup
+        setIsOpen(false);
+        
+      }
+    
+      return(
+        <>
+      <button className = "addtask" onClick={() => setIsOpen(true)}>
+        Add Task
+      </button>
+    
+      <ReactModal 
+        isOpen={isOpen}
+        contentLabel='addingtask'
+        onRequestClose={() => setIsOpen(false)}>
+      <div className = 'modalwrap'>
+          <h1>Add Item</h1>
+        
+          <h2 class = 'modalsubtitle'>Task</h2>
+    
+          <input 
+            className = "modalinput"
+            type = 'text' 
+            value = {newTask}
+          /* e is event object, "when value of this  input field changes, 
+          apply new inputted value to e, then update newtask "*/
+            onChange={(e) => setNewTask(e.target.value)}/> 
+     
+          <h2 class = 'modalsubtitle'>Day</h2>
+          <select 
+                  className='modalinput'
+                  value={day}
+                  onChange={(e) => setDay(e.target.value)}>
+                  <option value="">--Please choose a day--</option>
+                  <option value="M">Monday</option>
+                  <option value="TU">Tuesday</option>
+                  <option value="W">Wednesday</option>
+                  <option value="TH">Thursday</option>
+                  <option value="F">Friday</option>
+                  <option value="SA">Saturday</option>
+                  <option value="SU">Sunday</option>
+                </select>
+          
+      </div>
+      <button onClick={handleSubmit}> 
+          Submit
+      </button>
+      </ReactModal>
+      </>
+    
+      )
     }
 
 // todos is all items to do, day is a single day which gets iterated through the week by the main function
@@ -62,11 +129,13 @@ function ToDoList({todos, day}){
   </li>));
  
   return(
-    <div className = "taskswrapper">
+
+    <div className='eachtaskwrapper'>
       <ul className = "tasks">
         {task}
       </ul>
-    </div>
+      </div>
+    
   )
 }
 
@@ -83,9 +152,7 @@ function Title(){
 function SearchBar({children}){
   return(
     <div className = "searchwrapper"> 
-    <div className='addwrapper'>
-    {children}
-      </div>
+      {children}
       <form className = "search">
         <input type = "text" placeholder = "search..." />
         <br/>
@@ -97,74 +164,6 @@ function SearchBar({children}){
 }
 
 
-function HandleAdd({setItems}){
-  const [isOpen, setIsOpen] = useState(true);
-  const [newTask, setNewTask] = useState('');
-  const [day, setDay] = useState('');
 
-  //activates when submit on addtask occurs
-  const handleSubmit = () => {
-    const task = {
-      dayabrev: day,
-      do: newTask,
-    };
-
-    //update tasks
-    setItems(prevItems => [...prevItems, task]);
-    //clear inputs
-    setDay('');
-    setNewTask('');
-    //close popup
-    setIsOpen(false);
-    
-  }
-
-  return(
-    <>
-  <button class = "addtask" onClick={() => setIsOpen(true)}>
-    Add Task
-  </button>
-
-  <ReactModal 
-    isOpen={isOpen}
-    contentLabel='addingtask'
-    onRequestClose={() => setIsOpen(false)}>
-  <div className = 'modalwrap'>
-      <h1>Add Item</h1>
-    
-      <h2 class = 'modalsubtitle'>Task</h2>
-
-      <input 
-        className = "modalinput"
-        type = 'text' 
-        value = {newTask}
-      /* e is event object, "when value of this  input field changes, 
-      apply new inputted value to e, then update newtask "*/
-        onChange={(e) => setNewTask(e.target.value)}/> 
- 
-      <h2 class = 'modalsubtitle'>Day</h2>
-      <select 
-              className='modalinput'
-              value={day}
-              onChange={(e) => setDay(e.target.value)}>
-              <option value="">--Please choose a day--</option>
-              <option value="M">Monday</option>
-              <option value="TU">Tuesday</option>
-              <option value="W">Wednesday</option>
-              <option value="TH">Thursday</option>
-              <option value="F">Friday</option>
-              <option value="SA">Saturday</option>
-              <option value="SU">Sunday</option>
-            </select>
-      
-  </div>
-  <button onClick={handleSubmit}> 
-      Submit
-  </button>
-  </ReactModal>
-  </>
-
-  )
-}
 
             

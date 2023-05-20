@@ -37,31 +37,89 @@ code {
   margin-left: 204px;
 }
 
-.searchwrapper{
-  margin-right: 200px;
-  padding: 10px;
-}
-
 .addtask:hover{
   background-color: white;
   color: black;
 }
 
-.modalwrap{
-  font-size: 30px;
+.searchwrapper{
+  margin-right: 200px;
+  padding: 10px;
+}
+
+
+
+.ModalPopup{
+  width: 800px;
+  height: 500px;
+  background-color:#ecedf7;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  
+}
+
+.ModalPopup h1{
+  color: #495383;
+  margin-left: 30px;
+}
+
+.ModalPopup h2{
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.modalinput{
+  margin-left: 30px;
+  width: 700px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #7480bc;
+  font-size: large;
+  padding-left: 10px;
+  font-weight:550;
+
+}
+
+/* Dropdown for day smaller then task input, this is for that*/
+
+
+
+.AddTaskSubmitButton{
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 700px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #7480bc;
+  font-size: large;
+  background-color: #5971ee;
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.closemodal{
+  padding: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  color: #7480bc;
+  cursor: pointer;
 }
 
 
 .mainbuttons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:baseline;
 }
 
 .taskUIwrapper{
   background-color: #ecedf7;
   border-radius: 15px;
-  margin: 10px;
+  margin: -20px;
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -76,7 +134,6 @@ code {
 }
 
 .daylabel{
-  
   margin-left: 30px;
   text-decoration: underline;
 }

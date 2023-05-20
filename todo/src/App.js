@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import ReactModal from 'react-modal';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Popup from 'reactjs-popup';
-import { DropdownButton } from 'react-bootstrap';
+
 
 export default function App(){
 
@@ -75,13 +73,20 @@ export default function App(){
       <button className = "addtask" onClick={() => setIsOpen(true)}>
         Add Task
       </button>
+
+      
     
       <ReactModal 
         isOpen={isOpen}
         contentLabel='addingtask'
-        onRequestClose={() => setIsOpen(false)}>
-      <div className = 'modalwrap'>
-          <h1>Add Item</h1>
+        onRequestClose={() => setIsOpen(false)}
+        className = "ModalPopup"
+        >
+      
+      
+      <button className = "closemodal" onClick={() => setIsOpen(false)}> X </button>
+          
+          <h1>Add Task</h1>
         
           <h2 class = 'modalsubtitle'>Task</h2>
     
@@ -107,11 +112,13 @@ export default function App(){
                   <option value="SA">Saturday</option>
                   <option value="SU">Sunday</option>
                 </select>
-          
-      </div>
-      <button onClick={handleSubmit}> 
+      <br/>
+      <button onClick={handleSubmit} className='AddTaskSubmitButton'> 
           Submit
-      </button>
+      </button> 
+     
+      
+      
       </ReactModal>
       </>
     

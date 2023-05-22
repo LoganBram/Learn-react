@@ -91,7 +91,7 @@ export default function App(){
           <h2 class = 'modalsubtitle'>Task</h2>
     
           <input 
-            className = "modalinput"
+            className = "ModalInputTask"
             type = 'text' 
             value = {newTask}
           /* e is event object, "when value of this  input field changes, 
@@ -100,7 +100,7 @@ export default function App(){
      
           <h2 class = 'modalsubtitle'>Day</h2>
           <select 
-                  className='modalinput'
+                  className='ModalInputDay'
                   value={day}
                   onChange={(e) => setDay(e.target.value)}>
                   <option value="">--Please choose a day--</option>

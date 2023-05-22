@@ -11,13 +11,13 @@ body{
 }
 
 .container{
-  margin: 1rem;
+  
   text-align: center;
 }
 
 .nav{
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   justify-content:space-between;
   align-items: stretch;
@@ -27,11 +27,11 @@ body{
 
 .nav ul{
   padding: 0;
-  margin: 0;
+  margin-right: 200px;
   /* list style removes dots from the list */
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 5rem;
 }
 
 .nav a{
@@ -48,7 +48,51 @@ body{
 }
 
 .nav li:hover{
-  background-color: #777;
+  color: rgb(186, 80, 80);
   transition-duration: 0.3s;
+}
+
+.logo-img{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+
+}
+
+.logo{
+  margin-left: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*navbar section above*/
+
+.homevideo{
+  position: "absolute";
+  width: "100%";
+  left: "50%";
+  top: "50%";
+  height: "100%";
+  object-fit: "cover";
+  transform: "translate(-50%, -50%)";
+  z-index: "-1";
+}
+
+.overlaycontent{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.overlaylogo{
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
 }
 

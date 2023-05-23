@@ -36,7 +36,7 @@ export default function App(){
           <HandleAdd setItems={setItems} />
             <SearchBar />
         </div>
-        <div className = "taskUIwrapper">
+        <div className = "taskbox">
             {days.map(day =>
                 <div key={day.dayabrev}>
                     <h2 className="daylabel">{day.label}</h2>
@@ -133,41 +133,31 @@ function ToDoList({todos, day, setItems}){
   //passes to ToDoItem for css management
   let task = todos.filter(todos => todos.dayabrev === day.dayabrev)
 
-const handleTaskToggle = (task) => {
-    // toggle the completed status of the task
+  function HandleTaskToggle (task) {
     task.completed = !task.completed;
-    // force the component to re-render
     setItems([...todos]);
   }
-  
-  return(
 
+  console.log(task)
+  return(
+    //map through all items for a day and return a ToDoItem for each
     <div className='but-included-wrapper'>
       <ul className = "buttons-included-task">
         {task.map(filteredtask => (
-          <ToDoItem filteredtask={filteredtask} handleTaskToggle={handleTaskToggle} />
+          <li className='todoitem'>
+          <input className={filteredtask.completed ? 'completed' : 'notcompleted'} 
+          onClick={() => HandleTaskToggle(filteredtask)}
+          type = 'checkbox' value='' />
+          {filteredtask.do}
+          
+        </li>
         ))}
       </ul>
       </div>
   )
 }
 
-function ToDoItem({filteredtask, handleTaskToggle}){
 
-  return(
-    <li className='todoitem'>
-      <button
-        className = {filteredtask.completed ? 'completed' : 'notcompleted'}
-        onClick = {() => handleTaskToggle(filteredtask)}>
-        {filteredtask.completed ? '✓' : ''} 
-        </button>
-        {filteredtask.do}
-    </li>
-
-
-  )
-
-}
 
 function Title(){
   return(

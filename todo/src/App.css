@@ -37,7 +37,7 @@ code {
   margin-left: 204px;
 }
 
-.taskUIwrapper{
+.taskbox{
   background-color: #ecedf7;
   border-radius: 15px;
   margin: -20px;
@@ -45,14 +45,6 @@ code {
   margin-right: 200px;
 }
 
-.eachtaskwrapper {
-  background-color: white;
-  padding: 1px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
 
 .addtask:hover{
   background-color: white;
@@ -65,6 +57,44 @@ code {
 }
 
 
+
+
+
+
+/* Dropdown for day smaller then task input, this is for that*/
+
+.mainbuttons {
+  display: flex;
+  justify-content: space-between;
+  align-items:baseline;
+}
+
+.daylabel{
+  margin-left: 30px;
+  text-decoration: underline;
+}
+
+.todoitem{
+  display: flex;
+  margin-top: 5px;
+  
+  padding: 15px;
+  
+}
+
+.buttons-included-task{
+  display: block;
+  list-style-type: none;
+
+}
+
+.completed{
+  margin: 20px;
+}
+
+
+
+/*popup css below*/
 
 .ModalPopup{
   width: 800px;
@@ -88,49 +118,6 @@ code {
   margin-top: 40px;
   color: #7480bcb9
 }
-
-
-
-/* Dropdown for day smaller then task input, this is for that*/
-
-.mainbuttons {
-  display: flex;
-  justify-content: space-between;
-  align-items:baseline;
-}
-
-.daylabel{
-  margin-left: 30px;
-  text-decoration: underline;
-}
-
-.ToDoItem{
-  list-style-type: none;
-}
-
-.buttons-included-task{
-  display: flex;
-  align-items:end;
-  list-style-type: none;
-}
-
-
-
-.completed{
-  margin-left: 30px;
-  margin-right: 30px;
-  border-radius: 5px;
-  border: 1px solid #7480bc;
-  background-color: #5971ee;
-  color: white;
-  padding: 5px;
-  cursor: pointer;
-  transition-duration: 0.3s;
-}
-
-
-
-/*popup css below*/
 
 .ModalInputTask{
   margin-left: 30px;

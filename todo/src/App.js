@@ -32,11 +32,10 @@ export default function App(){
   return (
     <div className="appwrapper">
         <h1 className = "title">
-        To Do App
+        TODO APP
       </h1>
         <div className = "mainbuttons">
           <HandleAdd setItems={setItems} />
-            <SearchBar />
         </div>
         <div className = "taskbox">
             {days.map(day =>
@@ -90,10 +89,10 @@ export default function App(){
         className = "ModalPopup"
         >
       
+      <button onClick={() => setIsOpen(false)} type="button" class="closemodal" aria-label="Close"></button>
       
-      <button className = "closemodal" onClick={() => setIsOpen(false)}> X </button>
           
-          <h1>Add Task</h1>
+          <h1>Update TODO</h1>
         
           <h2 class = 'modalsubtitle'>Task</h2>
     
@@ -160,28 +159,14 @@ function ToDoList({todos, day, setItems}){
           <input className= 'checkbox'
           onClick={() => HandleTaskToggle(filteredtask)}
           type = 'checkbox' value='' />
-          <span className = {filteredtask.completed ? 'complete' : 'notcomplete'}>
+          <span className = {filteredtask.completed ? 'complete' : 'notcomplete'}
+          id='tasktext'>
           {filteredtask.do}
           </span>
         </li>
         ))}
       </ul>
       
-  )
-}
-
-
-/**/ 
-
-
-function SearchBar({children}){
-  return(
-    <div className = "searchwrapper"> 
-      {children}
-      <form className = "search">
-        <input type = "text" placeholder = "search..." />
-      </form>
-    </div>
   )
 }
 

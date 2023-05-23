@@ -5,12 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7f8ff;
+  background-color: #f8f8ff;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title{
@@ -19,14 +18,15 @@ code {
   margin-top: 50px;
   margin-right: 20px;
   margin-bottom: 20px;
-  color: rgb(104, 100, 119);
+  color: #7a7dcb;
+  font-family: 'Courier New', Courier, monospace;
   
 }
 
 .addtask{
-  background-color: #5971ee;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  background-color: #646fef;
+  padding-bottom: 7px;
+  padding-top: 7px;
   padding-left: 22px;
   padding-right: 22px;
   border-radius: 8%;
@@ -36,14 +36,18 @@ code {
   border-color: #5971ee;
   cursor: pointer;
   margin-left: 453px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .taskbox{
   background-color: #ecedf7;
   border-radius: 15px;
-  margin: -20px;
+  margin-top: 5px;
   margin-left: 450px;
   margin-right: 450px;
+  padding: 10px;
+
+
 }
 
 
@@ -52,12 +56,12 @@ code {
   color: black;
 }
 
-.searchwrapper{
-  margin-right: 443px;
-  padding: 10px;
+
+
+#tasktext{
+  font-weight: 400;
+  font-size: 16px;
 }
-
-
 
 
 
@@ -71,44 +75,54 @@ code {
 }
 
 .daylabel{
+  color: #545353;
   margin-left: 30px;
-  text-decoration: underline;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tasksULwrap{
   display: block;
   list-style-type: none;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding-left: 0;
   
 }
 
 .todoitem{
+  position: relative;
   font-size: 15px;
   padding-left: 10px;
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   background-color: white;
   border-radius: 5px;
+  border: 1px solid #7480bc;
+  display: flex;
+  font-size: 17px;
+  font-weight:normal;
+  color: #747474;
+  box-shadow: 1px 1px 1px #7480bc;
+  
+  
 }
+
 
 .checkbox{
   margin-right: 20px;
   margin-left: 20px;
   cursor: pointer;
   scale: 2.7;
-  color: #5971ee;
   
   
 }
 
-.complete{
-  text-decoration: line-through;
-  color: #7480bc;
-  
+.todoitem:hover{
+  box-shadow: 1px 1px 2px 2px #5c6bb6;
 }
+
+
 
 
 
@@ -124,18 +138,19 @@ code {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  border: 1px solid #7480bc;
   
 }
 
 .ModalPopup h1{
-  color: black;
+  color: #616072;
   margin-left: 30px;
 }
 
 .ModalPopup h2{
   margin-left: 30px;
   margin-top: 40px;
-  color: #7480bcb9
+  color: #767785
 }
 
 .ModalInputTask{
@@ -176,17 +191,35 @@ code {
   transition-duration: 0.3s;
 }
 
-.closemodal{
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #7480bc;
-  cursor: pointer;
-  font-size: 20px;
-  
+
+/* x button, overengineered but it works */
+.closemodal {
+  position: absolute;
+  right: 3px;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
 }
-
-
+.closemodal:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.closemodal:before, .closemodal:after {
+  position: absolute;
+  top: 8px;
+  left: 17px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+}
+.closemodal:before {
+  transform: rotate(45deg);
+}
+.closemodal:after {
+  transform: rotate(-45deg);
+}
 
 
 

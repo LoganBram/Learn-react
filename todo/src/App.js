@@ -31,7 +31,9 @@ export default function App(){
   
   return (
     <div className="appwrapper">
-        <Title />
+        <h1 className = "title">
+        To Do App
+      </h1>
         <div className = "mainbuttons">
           <HandleAdd setItems={setItems} />
             <SearchBar />
@@ -46,6 +48,12 @@ export default function App(){
         </div>
     </div>
 )}
+
+
+
+
+
+
 
     function HandleAdd({setItems}){
       const [isOpen, setIsOpen] = useState(true);
@@ -75,9 +83,6 @@ export default function App(){
       <button className = "addtask" onClick={() => setIsOpen(true)}>
         Add Task
       </button>
-
-      
-    
       <ReactModal 
         isOpen={isOpen}
         contentLabel='addingtask'
@@ -127,6 +132,12 @@ export default function App(){
       )
     }
 
+
+
+
+
+
+
 // todos is all items to do, day is a single day which gets iterated through the week by the main function
 function ToDoList({todos, day, setItems}){
   //takes a day as input and returns all items for that day
@@ -138,36 +149,30 @@ function ToDoList({todos, day, setItems}){
     setItems([...todos]);
   }
 
-  console.log(task)
+  
   return(
     //map through all items for a day and return a ToDoItem for each
-    <div className='but-included-wrapper'>
-      <ul className = "buttons-included-task">
+    
+      <ul className = "tasksULwrap">
         {task.map(filteredtask => (
           <li className='todoitem'>
-          <input className={filteredtask.completed ? 'completed' : 'notcompleted'} 
+
+          <input className= 'checkbox'
           onClick={() => HandleTaskToggle(filteredtask)}
           type = 'checkbox' value='' />
+          <span className = {filteredtask.completed ? 'complete' : 'notcomplete'}>
           {filteredtask.do}
-          
+          </span>
         </li>
         ))}
       </ul>
-      </div>
+      
   )
 }
 
 
 
-function Title(){
-  return(
-    <div className = "titlewrapper">
-      <h1 className = "title">
-        To Do List
-      </h1>
-    </div>
-  )
-}
+
 
 function SearchBar({children}){
   return(
@@ -175,9 +180,6 @@ function SearchBar({children}){
       {children}
       <form className = "search">
         <input type = "text" placeholder = "search..." />
-        <br/>
-        <input type = "checkbox" id = "showall" name = "showall"/>
-        <label htmlfor="showall">Show All Tasks</label>
       </form>
     </div>
   )

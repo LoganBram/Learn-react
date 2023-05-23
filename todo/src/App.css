@@ -13,12 +13,13 @@ code {
     monospace;
 }
 
-.titlewrapper{
+.title{
   text-align: center;
-  font-size: 35px;
-  color: #7480bc;
+  font-size: 70px;
   margin-top: 50px;
   margin-right: 20px;
+  margin-bottom: 20px;
+  color: rgb(104, 100, 119);
   
 }
 
@@ -34,15 +35,15 @@ code {
   color: white;
   border-color: #5971ee;
   cursor: pointer;
-  margin-left: 204px;
+  margin-left: 453px;
 }
 
 .taskbox{
   background-color: #ecedf7;
   border-radius: 15px;
   margin: -20px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 450px;
+  margin-right: 450px;
 }
 
 
@@ -52,7 +53,7 @@ code {
 }
 
 .searchwrapper{
-  margin-right: 200px;
+  margin-right: 443px;
   padding: 10px;
 }
 
@@ -74,23 +75,41 @@ code {
   text-decoration: underline;
 }
 
-.todoitem{
-  display: flex;
-  margin-top: 5px;
-  
-  padding: 15px;
-  
-}
-
-.buttons-included-task{
+.tasksULwrap{
   display: block;
   list-style-type: none;
-
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-left: 0;
+  
 }
 
-.completed{
-  margin: 20px;
+.todoitem{
+  font-size: 15px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
 }
+
+.checkbox{
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  scale: 2.7;
+  color: #5971ee;
+  
+  
+}
+
+.complete{
+  text-decoration: line-through;
+  color: #7480bc;
+  
+}
+
 
 
 
@@ -109,7 +128,7 @@ code {
 }
 
 .ModalPopup h1{
-  color: #7480bcdf;
+  color: black;
   margin-left: 30px;
 }
 

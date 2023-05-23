@@ -10,12 +10,13 @@ export default function App(){
   
 
   const [items, setItems] = useState([
-    {dayabrev:"M", do: "finish homework"},
-    {dayabrev:"W", do: "go boxing for three hours"},
-    {dayabrev:'TU', do: "run hills for a half hour"},
-    {dayabrev:"TH", do: "call mom for mothers day"},
-    {dayabrev:"TH", do: "tee time at 8:00 am"},
+    {dayabrev:"M", do: "finish homework", completed: false},
+    {dayabrev:"W", do: "go boxing for three hours", completed: false},
+    {dayabrev:'TU', do: "run hills for a half hour", completed: false},
+    {dayabrev:"TH", do: "call mom for mothers day", completed: false},
+    {dayabrev:"TH", do: "tee time at 8:00 am", completed: false},
   ]);
+
 
 
   const days = [
@@ -39,7 +40,7 @@ export default function App(){
             {days.map(day =>
                 <div key={day.dayabrev}>
                     <h2 className="daylabel">{day.label}</h2>
-                    <ToDoList todos={items} day={day} />
+                    <ToDoList todos={items} day={day} setItems={setItems}/>
                 </div>
             )}
         </div>
@@ -56,6 +57,7 @@ export default function App(){
         const task = {
           dayabrev: day,
           do: newTask,
+          completed: false,
         };
     
         //update tasks
@@ -126,24 +128,45 @@ export default function App(){
     }
 
 // todos is all items to do, day is a single day which gets iterated through the week by the main function
-function ToDoList({todos, day}){
+function ToDoList({todos, day, setItems}){
   //takes a day as input and returns all items for that day
   //passes to ToDoItem for css management
-  let task = todos.filter(todos => todos.dayabrev === day.dayabrev).map(filteredtask => (
-  <li> {filteredtask.do}
-  <button className = "completed"> completed</button>
-  <button className = "edit"> edit </button>
-  </li>));
- 
+  let task = todos.filter(todos => todos.dayabrev === day.dayabrev)
+
+const handleTaskToggle = (task) => {
+    // toggle the completed status of the task
+    task.completed = !task.completed;
+    // force the component to re-render
+    setItems([...todos]);
+  }
+  
   return(
 
-    <div className='eachtaskwrapper'>
-      <ul className = "tasks">
-        {task}
+    <div className='but-included-wrapper'>
+      <ul className = "buttons-included-task">
+        {task.map(filteredtask => (
+          <ToDoItem filteredtask={filteredtask} handleTaskToggle={handleTaskToggle} />
+        ))}
       </ul>
       </div>
-    
   )
+}
+
+function ToDoItem({filteredtask, handleTaskToggle}){
+
+  return(
+    <li className='todoitem'>
+      <button
+        className = {filteredtask.completed ? 'completed' : 'notcompleted'}
+        onClick = {() => handleTaskToggle(filteredtask)}>
+        {filteredtask.completed ? '✓' : ''} 
+        </button>
+        {filteredtask.do}
+    </li>
+
+
+  )
+
 }
 
 function Title(){

@@ -16,7 +16,7 @@ code {
   text-align: center;
   font-size: 70px;
   margin-top: 50px;
-  margin-right: 20px;
+  
   margin-bottom: 20px;
   color: #7a7dcb;
   font-family: 'Courier New', Courier, monospace;
@@ -46,6 +46,7 @@ code {
   margin-left: 450px;
   margin-right: 450px;
   padding: 10px;
+  border: 1px solid black;
 
 
 }
@@ -103,7 +104,7 @@ code {
   font-size: 17px;
   font-weight:normal;
   color: #747474;
-  box-shadow: 1px 1px 1px #7480bc;
+  ;
   
   
 }
@@ -122,7 +123,10 @@ code {
   box-shadow: 1px 1px 2px 2px #5c6bb6;
 }
 
+.complete{
+  text-decoration: line-through;
 
+}
 
 
 
